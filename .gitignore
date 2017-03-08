@@ -1,0 +1,8 @@
+/bin/*
+/obj/*
+
+# Package Files #
+*.exe
+*.pdb
+
+/upload.bat
