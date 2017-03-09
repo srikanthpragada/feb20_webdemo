@@ -4,5 +4,6 @@
 # Package Files #
 *.exe
 *.pdb
+/photos/*
 
 /upload.bat

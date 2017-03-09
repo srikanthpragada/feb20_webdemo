@@ -22,6 +22,16 @@
         lblFee.Text = fee.ToString();
 
     }
+
+    protected void cbMaterial_CheckedChanged(object sender, EventArgs e)
+    {
+        Response.Write("Checkbox status : " + cbMaterial.Checked);
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Response.Write(Page.IsPostBack);
+    }
 </script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,7 +42,7 @@
     <form id="form1" runat="server">
         <h1>Course Fee Calculator</h1>
          Select Course :
-            <asp:DropDownList ID="ddlCourse" runat="server">
+            <asp:DropDownList ID="ddlCourse" runat="server" AutoPostBack="true">
                 <asp:ListItem Value="3500">Java SE</asp:ListItem>
                 <asp:ListItem Value="4000">Java EE</asp:ListItem>
                 <asp:ListItem Value="3500">Oracle Database</asp:ListItem>
@@ -49,7 +59,10 @@
             <asp:RadioButton ID="rbOnline" Text="Online" runat="server"
                   GroupName="mode" />
         <p></p>
-            <asp:CheckBox ID="cbMaterial" Checked="true" runat="server" Text="Course Material" />
+            <asp:CheckBox ID="cbMaterial" Checked="true" runat="server"
+                Text="Course Material" 
+                 AutoPostBack="true"
+                OnCheckedChanged="cbMaterial_CheckedChanged" />
         <p></p>
         <asp:Button ID="btnCalculate" runat="server" Text="Calculate" OnClick="btnCalculate_Click" />
         <p></p>
