@@ -6,6 +6,10 @@
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
+        Application.Add("title", "Srikanth Technologies");
+        Trace.Write("Count : " + Application.Count);
+
+
         List<String> names = Session["names"] as List<String>;
         if (names != null)
             names.Add(txtName.Text);
@@ -21,8 +25,11 @@
 
         foreach (String n in names)
             Response.Write(n + "<br/>");
+    }
 
-
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Response.Write("Session Count : " + Application["count"]);
     }
 </script>
 
