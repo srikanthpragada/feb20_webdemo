@@ -9,14 +9,13 @@
 
         try
         {
-            using (SqlConnection con = new SqlConnection
-              (@"Data Source=(localdb)\v11.0;Initial Catalog=msdb;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection(Database.ConnectionString))
             {
                 con.Open();
                 String cmdstr = "update products set price = " + txtNewPrice.Text +
                      " where prodid = " + txtProdid.Text;
                 Trace.Write(cmdstr);
-                SqlCommand cmd = new SqlCommand(cmdstr,con);
+                SqlCommand cmd = new SqlCommand(cmdstr, con);
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                     lblMsg.Text = "Updated Price Successfully!";

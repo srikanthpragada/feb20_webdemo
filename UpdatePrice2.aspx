@@ -9,8 +9,7 @@
 
         try
         {
-            using (SqlConnection con = new SqlConnection
-              (@"Data Source=(localdb)\v11.0;Initial Catalog=msdb;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection(Database.ConnectionString))
             {
                 con.Open();
 
