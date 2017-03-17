@@ -1,0 +1,10 @@
+﻿body {
+     font-family :Verdana;
+     font-size : 12pt;
+}
+
+.header{
+    font-size : 30pt;
+    color:white;
+    background-color: blue;
+}

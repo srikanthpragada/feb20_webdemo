@@ -1,9 +1,14 @@
 ﻿<%@ Page Language="C#" %>
+<%@ OutputCache Duration="120" VaryByParam="*" %>
 
 <!DOCTYPE html>
 
 <script runat="server">
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Label1.Text = "Last retrieved at : " + DateTime.Now.ToString();
+    }
 </script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,6 +17,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+       <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
        <h1>List Of Products</h1>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             DataKeyNames="ProdId" 
